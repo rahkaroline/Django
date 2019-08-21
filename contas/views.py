@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Transacao
 from .form import TransacaoForm
 import datetime
@@ -23,5 +23,10 @@ def listagem(request):
 def nova_transacao(request):
     data = {}
     form = TransacaoForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('url_listagem')
+
     data['form'] = form
     return render(request, 'contas/form.html', data)
