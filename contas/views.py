@@ -20,6 +20,8 @@ def listagem(request):
     return render(request, 'contas/listagem.html', data)
 
 
+
+
 def nova_transacao(request):
     data = {}
     form = TransacaoForm(request.POST or None)
