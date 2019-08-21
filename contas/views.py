@@ -30,3 +30,4 @@ def nova_transacao(request):
 
     data['form'] = form
     return render(request, 'contas/form.html', data)
+
